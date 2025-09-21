@@ -9,12 +9,31 @@ html {
 }
 
 body {
+
     height: inherit;
+}
+
+.card{
+    position: relative;
+    display: grid;
+    justify-items: center;
 }
 
 video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+  object-position: center;
 }
+
+h2{
+    font-family: 'Raleway-ExtraBold';
+    font-size: 116px;
+    position: absolute;
+    max-width: 739px;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 95px 0;
+}
+
