@@ -40,13 +40,21 @@ h2{
     
 }
 
-.page__title:hover::before {
-    content: 'На самом деле нет.\AВажнее &mdash; научиться ошибаться.';
+.page__title {
+    position: relative; /* Нужно для позиционирования псевдоэлемента */
+    display: inline-block; /* Чтобы псевдоэлемент правильно позиционировался */
+    cursor: pointer; /* Показывает, что это интерактивный элемент */
+}
+
+.page__title::before {
+    content: 'На самом деле нет. \AВажнее &mdash; научиться ошибаться.';
     white-space: pre;
     position: absolute;
-    inset: 0;
-    background-color: rgb(255, 253, 253);
-    z-index: 2;
+    top: -180px; /* Позиционируем над звездочкой */
+    left: 50%;
+    transform: translateX(-40%);
+    background-color: rgba(255, 255, 255, 0.95); /* Полупрозрачный белый */
+    z-index: 3;
     width: 746px;
     height: 158px;
     font-size: 35px;
@@ -55,8 +63,23 @@ h2{
     border: 2px solid #000000;
     border-radius: 20px;
     text-align: start;
-    display: grid;
-    align-self: center;
-    justify-self: end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 10px 0 rgb(0, 0, 0);
 }
 
+.page__title:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+.card:hover video {
+    filter: brightness(0.8);
+    transition: filter 0.3s ease-in-out;
+}
